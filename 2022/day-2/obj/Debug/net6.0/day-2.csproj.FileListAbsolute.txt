@@ -1,0 +1,15 @@
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\bin\Debug\net6.0\day-2.exe
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\bin\Debug\net6.0\day-2.deps.json
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\bin\Debug\net6.0\day-2.runtimeconfig.json
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\bin\Debug\net6.0\day-2.dll
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\bin\Debug\net6.0\day-2.pdb
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.csproj.AssemblyReference.cache
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.AssemblyInfoInputs.cache
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.AssemblyInfo.cs
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.csproj.CoreCompileInputs.cache
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.dll
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\refint\day-2.dll
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.pdb
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\day-2.genruntimeconfig.cache
+C:\Users\justi\Documents\work\personal\advent-of-code-2022\day-2\obj\Debug\net6.0\ref\day-2.dll
