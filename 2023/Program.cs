@@ -1,8 +1,9 @@
-﻿namespace _2023;
+﻿using _2023._01;
+
+namespace _2023;
 
 public static class Program
 {
-    private static string Input = "input.txt";
     public static void Main(string[] args)
     {
         if (args.Length != 2)
@@ -12,12 +13,12 @@ public static class Program
                               "Second Arg: Part (e.g. 1 or 2)");
             return;
         }
-        
+
         switch (args[0])
         {
             case "01":
             case "1":
-                Day1.Run(ReadInputAsLines(Input), Enum.Parse<Part>(args[1]));
+                Day1.Run(Enum.Parse<Part>(args[1]));
                 break;
             default:
                 Console.WriteLine("Invalid Day.  Please indicate which day to run.");
@@ -25,11 +26,16 @@ public static class Program
         }
     }
 
-    public static string[] ReadInputAsLines(string path)
+    public static async Task<IEnumerable<string>> ReadInputAsLinesAsync(string path)
     {
-        var input = File.ReadAllLines("01/input.txt");
-        return input;
+        return await File.ReadAllLinesAsync(path);
     }
+
+    public static async Task<string> ReadInputAsStringAsync(string path)
+    {
+        return await File.ReadAllTextAsync(path);
+    }
+
 
     public enum Part
     {

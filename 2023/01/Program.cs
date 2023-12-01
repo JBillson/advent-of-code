@@ -1,16 +1,20 @@
 ﻿using System.Text;
-using _2023;
+
+namespace _2023._01;
 
 public static class Day1
 {
+    private const string Input = "01/input.txt";
+
     private static readonly Dictionary<string, int> WordNumbers = new()
     {
         { "one", 1 }, { "two", 2 }, { "three", 3 }, { "four", 4 }, { "five", 5 },
         { "six", 6 }, { "seven", 7 }, { "eight", 8 }, { "nine", 9 },
     };
 
-    public static void Run(string[] input, Program.Part part)
+    public static async void Run(Program.Part part)
     {
+        var input = await Program.ReadInputAsLinesAsync(Input);
         var outputs = new List<int>();
         foreach (var line in input)
         {
