@@ -18,11 +18,12 @@ public class Day2
         var totalPower = 0;
         foreach (var game in input)
         {
-            Console.WriteLine("-----------------------");
-            Console.WriteLine(game);
-            var isValidGame = true;
             var gameId = int.Parse(game.Split(':')[0].Split(' ')[1]);
             var gameTurns = game.Split(':')[1].Split(';');
+
+            // part one
+            var isValidGame = true;
+            // part two
             var coloursUsed = new Dictionary<string, int>
             {
                 { "red", 0 },
@@ -63,6 +64,13 @@ public class Day2
                 if (!isValidGame) break;
             }
 
+            // part one
+            if (isValidGame)
+            {
+                gameIdTotal += gameId;
+            }
+
+            // part two
             var values = coloursUsed.Values;
             var turnPower = 1;
             foreach (var value in values)
@@ -71,23 +79,9 @@ public class Day2
             }
 
             totalPower += turnPower;
-
-            if (isValidGame)
-            {
-                gameIdTotal += gameId;
-            }
         }
 
-        switch (part)
-        {
-            case Program.Part.PartOne:
-                Console.WriteLine($"Game Id Sum: {gameIdTotal}");
-                break;
-            case Program.Part.PartTwo:
-                Console.WriteLine($"Power Sum: {totalPower}");
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(part), part, null);
-        }
+        var answer = part == Program.Part.PartOne ? gameIdTotal.ToString() : totalPower.ToString();
+        Console.WriteLine($"Answer: {answer}");
     }
 }
