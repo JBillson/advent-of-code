@@ -12,7 +12,7 @@ public static class Day1
         { "six", 6 }, { "seven", 7 }, { "eight", 8 }, { "nine", 9 },
     };
 
-    public static async void Run(Program.Part part)
+    public static async Task Run(Program.Part part)
     {
         var input = await Program.ReadInputAsLinesAsync(Input);
         var outputs = new List<int>();
@@ -21,6 +21,7 @@ public static class Day1
             Console.WriteLine("------------------------");
             Console.WriteLine($"Line: {line}");
             var numberString = GetNumbersFromLine(line, part == Program.Part.PartTwo);
+            if (string.IsNullOrEmpty(numberString)) continue;
             var outputString = $"{numberString[0]}{numberString[^1]}";
             Console.WriteLine($"{numberString} => {outputString}");
 
@@ -40,7 +41,6 @@ public static class Day1
             var x = line[i];
             if (char.IsDigit(x))
             {
-                tempWord.Clear();
                 numbers.Append(x);
             }
             else if (includeWordNumbers)
@@ -69,7 +69,7 @@ public static class Day1
     private static bool IsValidStartingLetter(char letter)
     {
         var isValidStartingLetter = false;
-        foreach (var x in WordNumbers.Keys.Where(wordNumber => wordNumber.StartsWith(letter)))
+        foreach (var s in WordNumbers.Keys.Where(x => x.StartsWith(letter)))
         {
             isValidStartingLetter = true;
         }
