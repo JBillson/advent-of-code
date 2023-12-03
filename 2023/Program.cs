@@ -1,5 +1,6 @@
 ﻿using _2023._01;
 using _2023._02;
+using _2023._03;
 
 namespace _2023;
 
@@ -24,6 +25,10 @@ public static class Program
             case "02":
             case "2":
                 await Day2.Run(Enum.Parse<Part>(args[1]));
+                break;
+            case "03":
+            case"3":
+                await Day3.Run();
                 break;
             default:
                 Console.WriteLine("Invalid Day.  Please indicate which day to run.");
