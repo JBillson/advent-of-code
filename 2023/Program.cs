@@ -16,19 +16,22 @@ public static class Program
             return;
         }
 
-        switch (args[0])
+        var day = args[0];
+        var part = Enum.Parse<Part>(args[1]);
+
+        switch (day)
         {
             case "01":
             case "1":
-                await Day1.Run(Enum.Parse<Part>(args[1]));
+                await Day1.Run(part);
                 break;
             case "02":
             case "2":
-                await Day2.Run(Enum.Parse<Part>(args[1]));
+                await Day2.Run(part);
                 break;
             case "03":
             case"3":
-                await Day3.Run();
+                await Day3.Run(part);
                 break;
             default:
                 Console.WriteLine("Invalid Day.  Please indicate which day to run.");
