@@ -6,8 +6,7 @@ public class Day3
 
     public static async Task Run(Program.Part part)
     {
-        var input = await Program.ReadInputAsLinesAsync(Input);
-        var lines = input.ToList();
+        var lines = await Program.ReadInputAsLinesAsync(Input);
         if (!lines.Any()) return;
 
         var numbers = GetNumbersFromInput(lines);
