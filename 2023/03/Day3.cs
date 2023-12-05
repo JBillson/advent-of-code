@@ -1,6 +1,6 @@
 ﻿namespace _2023._03;
 
-public class Day3
+public abstract class Day3
 {
     private const string Input = "03/input.txt";
 
@@ -13,7 +13,7 @@ public class Day3
         var finalNumbers = new List<Number>();
         foreach (var number in numbers)
         {
-            if (number.indices.Any(index => IsSymbolSurrounding(number.line, index, lines)))
+            if (number.Indices.Any(index => IsSymbolSurrounding(number.Line, index, lines)))
             {
                 finalNumbers.Add(number);
             }
@@ -22,7 +22,7 @@ public class Day3
         switch (part)
         {
             case Program.Part.PartOne:
-                Console.WriteLine("Part One: " + finalNumbers.Sum(x => x.value));
+                Console.WriteLine("Part One: " + finalNumbers.Sum(x => x.Value));
                 break;
             case Program.Part.PartTwo:
             {
@@ -38,7 +38,7 @@ public class Day3
                     var adjacent = CountAdjacentNumbers(x, y, lines, numbers);
                     if (adjacent.Count == 2)
                     {
-                        totalGearRatioSum += adjacent[0].value * adjacent[1].value;
+                        totalGearRatioSum += adjacent[0].Value * adjacent[1].Value;
                     }
                 }
 
@@ -54,7 +54,7 @@ public class Day3
         // left
         if (y != 0 && char.IsDigit(lines[x][y - 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x && number.indices.Contains(y - 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x && number.Indices.Contains(y - 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -62,7 +62,7 @@ public class Day3
         // up left
         if (x != 0 && y != 0 && char.IsDigit(lines[x - 1][y - 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x - 1 && number.indices.Contains(y - 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x - 1 && number.Indices.Contains(y - 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -70,7 +70,7 @@ public class Day3
         // up 
         if (x != 0 && char.IsDigit(lines[x - 1][y]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x - 1 && number.indices.Contains(y));
+            var number = numbers.FirstOrDefault(number => number.Line == x - 1 && number.Indices.Contains(y));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -78,7 +78,7 @@ public class Day3
         // up right
         if (x != 0 && y != lines[x].Length - 1 && char.IsDigit(lines[x - 1][y + 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x - 1 && number.indices.Contains(y + 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x - 1 && number.Indices.Contains(y + 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -86,7 +86,7 @@ public class Day3
         // right
         if (y != lines[x].Length - 1 && char.IsDigit(lines[x][y + 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x && number.indices.Contains(y + 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x && number.Indices.Contains(y + 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -94,7 +94,7 @@ public class Day3
         // right down
         if (x != lines.Count - 1 && y != lines[x].Length - 1 && char.IsDigit(lines[x + 1][y + 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x + 1 && number.indices.Contains(y + 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x + 1 && number.Indices.Contains(y + 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -102,7 +102,7 @@ public class Day3
         // down
         if (x != lines.Count - 1 && char.IsDigit(lines[x + 1][y]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x + 1 && number.indices.Contains(y));
+            var number = numbers.FirstOrDefault(number => number.Line == x + 1 && number.Indices.Contains(y));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -110,7 +110,7 @@ public class Day3
         // left down
         if (x != lines.Count - 1 && y != 0 && char.IsDigit(lines[x + 1][y - 1]))
         {
-            var number = numbers.FirstOrDefault(number => number.line == x + 1 && number.indices.Contains(y - 1));
+            var number = numbers.FirstOrDefault(number => number.Line == x + 1 && number.Indices.Contains(y - 1));
             if (number != null && !results.Contains(number))
                 results.Add(number);
         }
@@ -184,25 +184,21 @@ public class Day3
             {
                 if (!char.IsDigit(lines[i][j])) continue;
 
-                var currentNumber = new Number
-                {
-                    line = i,
-                    indices = new List<int>()
-                };
+                var currentNumber = new Number(i);
 
                 while (j < lines[i].Length && char.IsDigit(lines[i][j]))
                 {
-                    currentNumber.indices.Add(j);
+                    currentNumber.Indices.Add(j);
                     j++;
                 }
 
                 var numberString = string.Empty;
-                foreach (var index in currentNumber.indices)
+                foreach (var index in currentNumber.Indices)
                 {
                     numberString += lines[i][index];
                 }
 
-                currentNumber.value = int.Parse(numberString);
+                currentNumber.Value = int.Parse(numberString);
                 numbers.Add(currentNumber);
             }
         }
@@ -212,8 +208,14 @@ public class Day3
 
     public class Number
     {
-        public int line;
-        public List<int> indices;
-        public int value;
+        public int Line { get; }
+        public List<int> Indices { get; }
+        public int Value { get; set; }
+
+        public Number(int line)
+        {
+            Line = line;
+            Indices = new List<int>();
+        }
     }
 }
