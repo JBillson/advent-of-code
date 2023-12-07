@@ -2,6 +2,7 @@
 using _2023._02;
 using _2023._03;
 using _2023._04;
+using _2023._05;
 
 namespace _2023;
 
@@ -31,12 +32,16 @@ public static class Program
                 await Day2.Run(part);
                 break;
             case "03":
-            case"3":
+            case "3":
                 await Day3.Run(part);
                 break;
             case "04":
-            case"4":
+            case "4":
                 await Day4.Run(part);
+                break;
+            case "05":
+            case "5":
+                await Day5.Run(part);
                 break;
             default:
                 Console.WriteLine("Invalid Day.  Please indicate which day to run.");
@@ -46,7 +51,16 @@ public static class Program
 
     public static async Task<List<string>> ReadInputAsLinesAsync(string path)
     {
-        var lines = await File.ReadAllLinesAsync(path);
+        var lines = Array.Empty<string>();
+        try
+        {
+            lines = await File.ReadAllLinesAsync(path);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
         return lines.ToList();
     }
 

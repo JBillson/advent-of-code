@@ -15,6 +15,12 @@ public static class Day1
     public static async Task Run(Program.Part part)
     {
         var input = await Program.ReadInputAsLinesAsync(Input);
+        if (!input.Any())
+        {
+            Console.WriteLine("ERROR: No input text found");
+            return;
+        }
+        
         var outputs = new List<int>();
         foreach (var line in input)
         {

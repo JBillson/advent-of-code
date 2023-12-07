@@ -14,6 +14,12 @@ public class Day2
     public static async Task Run(Program.Part part)
     {
         var input = await Program.ReadInputAsLinesAsync(Input);
+        if (!input.Any())
+        {
+            Console.WriteLine("ERROR: No input text found");
+            return;
+        }
+        
         var gameIdTotal = 0;
         var totalPower = 0;
         foreach (var game in input)

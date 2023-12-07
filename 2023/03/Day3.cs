@@ -7,7 +7,11 @@ public abstract class Day3
     public static async Task Run(Program.Part part)
     {
         var lines = await Program.ReadInputAsLinesAsync(Input);
-        if (!lines.Any()) return;
+        if (!lines.Any())
+        {
+            Console.WriteLine("ERROR: No input text found");
+            return;
+        }
 
         var numbers = GetNumbersFromInput(lines);
         var finalNumbers = new List<Number>();

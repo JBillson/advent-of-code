@@ -7,7 +7,11 @@ public abstract class Day4
     public static async Task Run(Program.Part part)
     {
         var input = await Program.ReadInputAsLinesAsync(Input);
-        if (!input.Any()) return;
+        if (!input.Any())
+        {
+            Console.WriteLine("ERROR: No input text found");
+            return;
+        }
 
         var cards = input.Select(ParseCard).ToList();
 
