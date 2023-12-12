@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text;
 
 namespace _2023._06;
 
@@ -15,13 +15,42 @@ public class Day6
             return;
         }
 
-        var times = input[0].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).Select(int.Parse)
-            .ToList();
-        var distances = input[1].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x))
-            .Select(int.Parse)
-            .ToList();
+        var times = new List<long>();
+        var distances = new List<long>();
+        if (part == Program.Part.PartOne)
+        {
+            times = input[0].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(long.Parse).ToList();
+            distances = input[1].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x))
+                .Select(long.Parse).ToList();
+        }
+        else
+        {
+            var timeNumbers = input[0].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x))
+                .ToList();
+            var timeSb = new StringBuilder();
+            foreach (var number in timeNumbers)
+            {
+                timeSb.Append(number);
+            }
 
-        var totalWaysToBeatRecord = new List<int>();
+            var time = long.Parse(timeSb.ToString());
+
+            var distanceNumbers = input[1].Split(':')[1].Trim().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x))
+                .ToList();
+            var distanceSb = new StringBuilder();
+            foreach (var number in distanceNumbers)
+            {
+                distanceSb.Append(number);
+            }
+
+            var distance = long.Parse(distanceSb.ToString());
+
+            times.Add(time);
+            distances.Add(distance);
+        }
+
+        var totalWaysToBeatRecord = new List<long>();
         for (var i = 0; i < times.Count; i++)
         {
             var duration = times[i];
@@ -41,7 +70,8 @@ public class Day6
         }
 
 
-        var answer = totalWaysToBeatRecord.Aggregate(1, (current, i) => current * i);
-        Console.WriteLine($"Part One: {answer}");
+        var answer = totalWaysToBeatRecord.Aggregate<long, long>(1, (current, l) => current * l);
+
+        Console.WriteLine($"Answer: {answer}");
     }
 }
