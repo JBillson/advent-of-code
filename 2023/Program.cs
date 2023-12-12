@@ -3,6 +3,7 @@ using _2023._02;
 using _2023._03;
 using _2023._04;
 using _2023._05;
+using _2023._06;
 
 namespace _2023;
 
@@ -42,6 +43,10 @@ public static class Program
             case "05":
             case "5":
                 await Day5.Run(part);
+                break;
+            case "06":
+                case "6":
+                await Day6.Run(part);
                 break;
             default:
                 Console.WriteLine("Invalid Day.  Please indicate which day to run.");
