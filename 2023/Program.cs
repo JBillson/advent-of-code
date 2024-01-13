@@ -45,7 +45,7 @@ public static class Program
                 await Day5.Run(part);
                 break;
             case "06":
-                case "6":
+            case "6":
                 await Day6.Run(part);
                 break;
             default:

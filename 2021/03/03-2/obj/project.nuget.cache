@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "5th+AOmAPKy6QP9+VZH+IoVQB14B/KbJhnE+3RLcbWIl3q6R7UG8znI1sT3amwJUYx8Y07TfaG1UIViz+hM8wA==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\justi\\Documents\\work\\personal\\advent-of-code\\2021\\03\\03-2\\03-2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

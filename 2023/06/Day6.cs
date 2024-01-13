@@ -2,7 +2,7 @@
 
 namespace _2023._06;
 
-public class Day6
+public abstract class Day6
 {
     private const string Input = "06/input.txt";
 
@@ -55,8 +55,8 @@ public class Day6
         {
             var duration = times[i];
             var record = distances[i];
-
             var waysToBeatRecord = 0;
+
             for (var j = 0; j < duration; j++)
             {
                 var distance = j * (duration - j);
